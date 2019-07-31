@@ -1,3 +1,3 @@
 # MAINTAINERS
 
-Christopher Ferris - chrisfer@us.ibm.com
+Peter Poliwoda - peterpoliwoda@ie.ibm.com
