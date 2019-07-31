@@ -1,0 +1,85 @@
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="css/brands.css">
+    <link rel="stylesheet" type="text/css" href="css/solid.css">
+
+    <title>VI-DAS RT MAPS Event Detector</title>
+
+    <style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            color: #ffa94d;
+            background-color: #495057;
+        }
+
+        .warning-text {
+            padding-top: 20%;
+            font-size: 34px;
+            font-weight: 200;
+            text-align: center;
+
+        }
+
+        .warning-icon {
+            font-size: 4em;
+            padding-bottom: 20px;
+        }
+
+        .warning-caption {
+            font-weight: bold;
+            color: #ffd8a8;
+        }
+
+        .blink {
+            animation: blink-animation 0.75s steps(5, start) infinite;
+            -webkit-animation: blink-animation 0.75s steps(5, start) infinite;
+            }
+            @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+            }
+            @-webkit-keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+        var socket = io();
+
+        $(function() {
+            $('#event-warning').hide();
+        });
+
+        socket.on('connection', function(socket){
+            console.log('User connected.');
+        });
+        socket.on('event', function(event){
+            console.log('event received: ', event);
+            showWarning();
+        });
+
+        function showWarning() {
+            $('#event-warning').show();
+            setTimeout(function() {
+                $('#event-warning').hide();
+            }, 3000);
+        }
+    </script>
+
+</head>
+<body>
+    <div id="event-warning">
+        <div class="warning-text blink">
+                <i class="fas fa-exclamation-triangle warning-icon"></i> <br/>
+                <span class="warning-caption">Warning!</span> Event detected!
+            </div>
+    </div>
+</body>
+</html>

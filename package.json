@@ -1,0 +1,32 @@
+{
+  "name": "vi-das-events",
+  "version": "1.0.0",
+  "description": "Simple websockets displaying an icon if api call made",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterpoliwoda/vi-das-events.git"
+  },
+  "keywords": [
+    "ibm",
+    "self-driving",
+    "car",
+    "dashboard",
+    "warning"
+  ],
+  "author": "Peter Poliwoda",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/peterpoliwoda/vi-das-events/issues"
+  },
+  "homepage": "https://github.com/peterpoliwoda/vi-das-events#readme",
+  "dependencies": {
+    "eslint": "^6.1.0",
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  }
+}
