@@ -14,12 +14,11 @@
             background-color: #495057;
         }
 
-        .warning-text {
+        .hud {
             padding-top: 20%;
             font-size: 34px;
             font-weight: 200;
             text-align: center;
-
         }
 
         .warning-icon {
@@ -32,9 +31,13 @@
             color: #ffd8a8;
         }
 
+        #car-icon {
+            color: #999;
+        }
+
         .blink {
-            animation: blink-animation 0.75s steps(5, start) infinite;
-            -webkit-animation: blink-animation 0.75s steps(5, start) infinite;
+            animation: blink-animation 1s steps(5, start) infinite;
+            -webkit-animation: blink-animation 1s steps(5, start) infinite;
             }
             @keyframes blink-animation {
             to {
@@ -66,20 +69,28 @@
         });
 
         function showWarning() {
+
+            $('#car-icon').hide();
             $('#event-warning').show();
             setTimeout(function() {
                 $('#event-warning').hide();
+                $('#car-icon').show();
             }, 3000);
         }
     </script>
 
 </head>
 <body>
-    <div id="event-warning">
-        <div class="warning-text blink">
-                <i class="fas fa-exclamation-triangle warning-icon"></i> <br/>
-                <span class="warning-caption">Warning!</span> Event detected!
-            </div>
+    <div class="hud">
+        <div id="car-icon">
+            <i class="fas fa-car warning-icon"></i> <br/>
+        </div>
+        <div id="event-warning">
+            <div class="warning-text blink">
+                    <i class="fas fa-exclamation-triangle warning-icon"></i> <br/>
+                    <span class="warning-caption">Warning!</span> Event detected!
+                </div>
+        </div>
     </div>
 </body>
 </html>
