@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const cfenv = require('cfenv');
+const appEnv = cfenv.getAppEnv();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
@@ -21,6 +23,6 @@ io.on('connection', function(socket) {
     });
 });
 
-http.listen(3000, function() {
-    console.log('listening on *:3000');
+http.listen(appEnv.port, function() {
+    console.log('Server listening on: ' + appEnv.url);
 });

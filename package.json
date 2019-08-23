@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/peterpoliwoda/vi-das-events#readme",
   "dependencies": {
+    "cfenv": "^1.2.2",
     "eslint": "^6.1.0",
     "express": "^4.17.1",
     "socket.io": "^2.2.0"
